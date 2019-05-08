@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "name": "kebab",
+      "properties": [
+        {
+          "key": "size",
+          "value": "large"
+        },
+        {
+          "key": "spicy",
+          "value": "not"
+        }
+      ]
+    },
+    {
+      "name": "kebab2",
+      "properties": [
+        {
+          "key": "size",
+          "value": "large"
+        },
+        {
+          "key": "spicy",
+          "value": "not"
+        }
+      ]
+    }
+  ]
+}
