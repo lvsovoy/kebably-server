@@ -1,40 +1,39 @@
 package me.lesovoy.kebably.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+import me.lesovoy.kebably.model.enumeration.*;
 
+import javax.persistence.Embeddable;
 import java.util.List;
 
+@Data
+@Embeddable
 public class Item {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("type")
+    private ItemType type;
 
-    @JsonProperty("properties")
-    private List<Property> properties;
+    @JsonProperty("size")
+    private Size size;
 
-    //TODO: Price
+    @JsonProperty("contents")
+    private Contents contents;
 
-    public Item(String name) {
-        this.name = name;
+    @JsonProperty("spiciness")
+    private Spiciness spiciness;
+
+    @JsonProperty("sauce")
+    private Sauce sauce;
+
+    public Item() {
     }
 
-    public void addProperty(Property property){
-        this.properties.add(property);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Property> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(List<Property> properties) {
-        this.properties = properties;
+    public Item(ItemType type, Size size, Contents contents, Spiciness spiciness, Sauce sauce) {
+        this.type = type;
+        this.size = size;
+        this.contents = contents;
+        this.spiciness = spiciness;
+        this.sauce = sauce;
     }
 }

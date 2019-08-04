@@ -1,16 +1,17 @@
 package me.lesovoy.kebably.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import me.lesovoy.kebably.model.Order;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class OrderController {
-
-    @GetMapping("/")
-    public String order(Model model) {
-        return "order";
+    @PostMapping("/order")
+    ResponseEntity<Order> order(@RequestBody Order newOrder) {
+        return new ResponseEntity<Order>(newOrder, HttpStatus.OK);
     }
-
 
 }

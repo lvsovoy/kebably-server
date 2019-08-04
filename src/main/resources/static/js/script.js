@@ -1,6 +1,7 @@
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
         alert(content);
+        //TODO call /order endpoint
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
