@@ -38,7 +38,7 @@ public class OrderController {
                     if (updatedOrder.getItems() != null) order.setItems(updatedOrder.getItems());
                     if (updatedOrder.getStatus() != null) order.setStatus(updatedOrder.getStatus());
                     if (updatedOrder.getUuid() != null) order.setUuid(updatedOrder.getUuid());
-                    return repository.save(updatedOrder);
+                    return repository.save(order);
                 })
                 .orElseGet(() -> {
                     updatedOrder.setOrderId(orderId);
