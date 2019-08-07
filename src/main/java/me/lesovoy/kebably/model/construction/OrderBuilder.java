@@ -18,6 +18,9 @@ public class OrderBuilder {
         this.orderId = orderId;
     }
 
+    public OrderBuilder() {
+    }
+
     public OrderBuilder withStatus(Status status) {
         this.status = status;
         return this;

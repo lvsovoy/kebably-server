@@ -10,29 +10,25 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "orders")
 public class Order {
+    private @Id
+    @GeneratedValue
+    @JsonProperty("orderId")
+    long orderId;
+
     @JsonProperty("status")
     private Status status;
-
-    @Embedded
-    @ElementCollection
-    @JsonProperty("items")
-    private List<Item> items;
 
     @JsonProperty("uuid")
     private UUID uuid;
 
-    private @Id
-    @GeneratedValue
-    long orderId;
+    @Embedded
+    @ElementCollection
+    @CollectionTable(name = "user_items", joinColumns = @JoinColumn(name = "uuid"))
+    @JsonProperty("items")
+    private List<Item> items;
 
     public Order() {
-    }
-
-    public Order(Status status, List<Item> items, UUID uuid, Long orderId) {
-        this.status = status;
-        this.items = items;
-        this.uuid = uuid;
-        this.orderId = orderId;
     }
 }

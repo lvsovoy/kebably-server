@@ -1,17 +1,55 @@
 package me.lesovoy.kebably.controller;
 
 import me.lesovoy.kebably.model.Order;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import me.lesovoy.kebably.persistence.OrderRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class OrderController {
-    @PostMapping("/order")
-    ResponseEntity<Order> order(@RequestBody Order newOrder) {
-        return new ResponseEntity<Order>(newOrder, HttpStatus.OK);
+
+    private final OrderRepository repository;
+
+    OrderController(OrderRepository repository) {
+        this.repository = repository;
     }
+
+    @GetMapping("/orders")
+    List<Order> allOrders() {
+        return repository.findAll();
+    }
+
+    @PostMapping("/orders")
+    Order newOrder(@RequestBody Order newOrder) {
+        return repository.save(newOrder);
+    }
+
+    @DeleteMapping("/orders/{orderId}")
+    void deleteOrder(@PathVariable Long orderId) {
+        repository.deleteById(orderId);
+    }
+
+    @PutMapping("/orders/{orderId}")
+    Order replaceOrder(@RequestBody Order updatedOrder, @PathVariable Long orderId) {
+
+        return repository.findById(orderId)
+                .map(order -> {
+                    if (updatedOrder.getItems() != null) order.setItems(updatedOrder.getItems());
+                    if (updatedOrder.getStatus() != null) order.setStatus(updatedOrder.getStatus());
+                    if (updatedOrder.getUuid() != null) order.setUuid(updatedOrder.getUuid());
+                    return repository.save(updatedOrder);
+                })
+                .orElseGet(() -> {
+                    updatedOrder.setOrderId(orderId);
+                    return repository.save(updatedOrder);
+                });
+    }
+
+
+
+
+
+
 
 }

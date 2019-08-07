@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid" th:fragment="order">
+    <div class="row">
+        <div class="col-sm-4 my-3" th:each="order: ${orders}">
+            <div class="card">
+                <div class="card-body">
+                    <span class="card-title" th:text="${#strings.concat('#',order.orderId)}">order Id</span>
+                    <span th:text="${order.status}">order status</span>
+                    <div th:each="item: ${order.items}">
+                        <hr>
+                        <span th:text="${item.type}">Item type</span>
+                        <span th:text="${item.size}">Item size</span>
+                        <span th:text="${item.contents}">Item contents</span>
+                        <span th:text="${item.spiciness}">Item spiciness</span>
+                        <span th:text="${item.sauce}">Item sauce</span>
+                    </div>
+                </div>
+                <div th:insert="fragments :: controls"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card" th:fragment="controls">
+    <div class="card-body">
+        <button th:onclick="javascript:callDeleteOrder([[${order}]])" type="button" class="btn btn-outline-danger" id="delete-btn">Delete</button>
+
+        <a href="#" th:onclick="javascript:callMarkOrderAsDone([[${order}]])" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="done-btn">Done</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
