@@ -30,12 +30,8 @@ let scanner = new Instascan.Scanner({ video: document.getElementById('preview') 
       function callMarkOrderAsDone(order) {
             var xhttp = new XMLHttpRequest();
 
-            order.status = "DONE";
-
             xhttp.onreadystatechange = function() {
                  if (this.readyState == 4 && this.status == 200) {
-                 var rData = JSON.parse(this.responseText);
-                 console.log(rData.orderId);
                  console.log(this.responseText);
                  location.reload();
                  }
@@ -45,7 +41,23 @@ let scanner = new Instascan.Scanner({ video: document.getElementById('preview') 
             xhttp.setRequestHeader("Content-type", "application/json");
             console.log(JSON.stringify(order.status));
             xhttp.send("{\"status\": \"DONE\"}");
-        }
+      }
+
+      function callMarkOrderAsPending(order) {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                 console.log(this.responseText);
+                 location.reload();
+                 }
+            };
+
+            xhttp.open("PUT", "/orders/" + order.orderId, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            console.log(JSON.stringify(order.status));
+            xhttp.send("{\"status\": \"PENDING\"}");
+      }
 
     function callDeleteOrder(order) {
           var xhttp = new XMLHttpRequest();

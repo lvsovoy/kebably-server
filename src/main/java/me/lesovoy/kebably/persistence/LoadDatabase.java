@@ -14,12 +14,14 @@ import java.util.UUID;
 @Slf4j
 public class LoadDatabase {
 
+    public static final String PRELOADING = "Preloading";
+
     @Bean
     CommandLineRunner initDatabase(OrderRepository repository) {
         return args -> {
             UUID uuid = UUID.randomUUID();
 
-            log.info("Preloading" + repository.save(new OrderBuilder()
+            log.info(PRELOADING + repository.save(new OrderBuilder()
                     .withStatus(Status.PENDING)
                     .withUuid(uuid)
                     .withItem(new ItemBuilder(ItemType.PITA)
@@ -35,7 +37,7 @@ public class LoadDatabase {
                             .withSauce(Sauce.GARLIC)
                             .build())
                     .build()));
-            log.info("Preloading" + repository.save(new OrderBuilder()
+            log.info(PRELOADING + repository.save(new OrderBuilder()
                     .withStatus(Status.DONE)
                     .withUuid(uuid)
                     .withItem(new ItemBuilder(ItemType.KEBAB)
@@ -45,7 +47,7 @@ public class LoadDatabase {
                             .withSauce(Sauce.MAYO)
                             .build())
                     .build()));
-            log.info("Preloading" + repository.save(new OrderBuilder()
+            log.info(PRELOADING + repository.save(new OrderBuilder()
                     .withStatus(Status.PENDING)
                     .withUuid(uuid)
                     .withItem(new ItemBuilder(ItemType.KEBAB)

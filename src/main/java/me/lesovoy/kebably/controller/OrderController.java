@@ -1,10 +1,12 @@
 package me.lesovoy.kebably.controller;
 
 import me.lesovoy.kebably.model.Order;
+import me.lesovoy.kebably.model.enumeration.Status;
 import me.lesovoy.kebably.persistence.OrderRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class OrderController {
@@ -32,7 +34,6 @@ public class OrderController {
 
     @PutMapping("/orders/{orderId}")
     Order replaceOrder(@RequestBody Order updatedOrder, @PathVariable Long orderId) {
-
         return repository.findById(orderId)
                 .map(order -> {
                     if (updatedOrder.getItems() != null) order.setItems(updatedOrder.getItems());
@@ -46,10 +47,10 @@ public class OrderController {
                 });
     }
 
-
-
-
-
-
-
+    List<Order> getOrdersByStatus(Status status) {
+        return repository.findAll()
+                .stream()
+                .filter(order -> order.getStatus().equals(status))
+                .collect(Collectors.toList());
+    }
 }

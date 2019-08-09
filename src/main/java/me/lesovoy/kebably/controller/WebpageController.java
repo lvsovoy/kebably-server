@@ -1,5 +1,6 @@
 package me.lesovoy.kebably.controller;
 
+import me.lesovoy.kebably.model.enumeration.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,8 @@ public class WebpageController {
 
     @GetMapping("/")
     public String order(Model model) {
-        model.addAttribute("orders", orderController.allOrders());
+        model.addAttribute("pendingOrders", orderController.getOrdersByStatus(Status.PENDING));
+        model.addAttribute("doneOrders", orderController.getOrdersByStatus(Status.DONE));
         return "order";
     }
 }
