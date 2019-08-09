@@ -5,7 +5,6 @@ import lombok.Data;
 import me.lesovoy.kebably.model.enumeration.*;
 
 import javax.persistence.Embeddable;
-import java.util.List;
 
 @Data
 @Embeddable

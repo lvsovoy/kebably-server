@@ -5,6 +5,7 @@ import me.lesovoy.kebably.model.enumeration.Status;
 import me.lesovoy.kebably.persistence.OrderRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    Order newOrder(@RequestBody Order newOrder) {
+    Order newOrder(@RequestBody @Valid Order newOrder) {
         return repository.save(newOrder);
     }
 

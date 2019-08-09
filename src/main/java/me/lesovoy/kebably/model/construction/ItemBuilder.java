@@ -10,7 +10,6 @@ public class ItemBuilder {
     Spiciness spiciness;
     Sauce sauce;
 
-
     public ItemBuilder(ItemType type) {
         this.type = type;
     }
@@ -44,5 +43,4 @@ public class ItemBuilder {
         item.setSauce(this.sauce);
         return item;
     }
-
 }

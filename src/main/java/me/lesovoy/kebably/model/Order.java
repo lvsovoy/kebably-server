@@ -5,6 +5,7 @@ import lombok.Data;
 import me.lesovoy.kebably.model.enumeration.Status;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ public class Order {
     @JsonProperty("orderId")
     long orderId;
 
+    @NotNull
     @JsonProperty("status")
     private Status status;
 

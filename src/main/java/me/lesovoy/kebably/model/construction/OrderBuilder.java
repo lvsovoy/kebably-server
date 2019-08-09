@@ -14,10 +14,6 @@ public class OrderBuilder {
     UUID uuid;
     List<Item> itemList = new ArrayList<>();
 
-    public OrderBuilder(long orderId) {
-        this.orderId = orderId;
-    }
-
     public OrderBuilder() {
     }
 
@@ -44,5 +40,4 @@ public class OrderBuilder {
         order.setItems(this.itemList);
         return order;
     }
-
 }

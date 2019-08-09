@@ -1,0 +1,21 @@
+{
+  "orderId": 0,
+  "status": "PENDING",
+  "uuid": "4bd4480c-3607-4b49-a8da-6de0a029230d",
+  "items": [
+    {
+      "type": "KEBAB",
+      "size": null,
+      "contents": null,
+      "spiciness": null,
+      "sauce": null
+    },
+    {
+      "type": "BURGER",
+      "size": null,
+      "contents": null,
+      "spiciness": null,
+      "sauce": null
+    }
+  ]
+}

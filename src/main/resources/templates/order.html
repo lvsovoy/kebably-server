@@ -21,7 +21,19 @@
 
 <div th:insert="fragments :: pending-order"></div>
 <hr>
-<div th:insert="fragments :: done-order"></div>
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+                <button class="btn btn-link w-100" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Done orders
+                </button>
+        </div>
+
+        <div id="collapseOne" class="collapse bg-secondary" aria-labelledby="headingOne" data-parent="#accordion" >
+            <div th:insert="fragments :: done-order"></div>
+        </div>
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
