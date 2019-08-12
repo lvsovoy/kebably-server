@@ -1,0 +1,21 @@
+{
+  "orderId": 4,
+  "status": "PENDING",
+  "uuid": "111f5251-578e-4155-8447-4531c6a2565a",
+  "items": [
+    {
+      "type": "KEBAB",
+      "size": "SMALL",
+      "contents": "CHICKEN",
+      "spiciness": "SPICY",
+      "sauce": "MAYO"
+    },
+    {
+      "type": "BURGER",
+      "size": "SMALL",
+      "contents": "FALAFEL",
+      "spiciness": "MEDIUM_SPICY",
+      "sauce": "PICKLE"
+    }
+  ]
+}

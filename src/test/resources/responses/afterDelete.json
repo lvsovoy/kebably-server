@@ -1,0 +1,44 @@
+[
+  {
+    "orderId": 2,
+    "status": "DONE",
+    "uuid": "bd1041ce-b252-4269-88a0-c8a8fdc2926c",
+    "items": [
+      {
+        "type": "KEBAB",
+        "size": "SMALL",
+        "contents": "CHICKEN",
+        "spiciness": "SPICY",
+        "sauce": "MAYO"
+      }
+    ]
+  },
+  {
+    "orderId": 3,
+    "status": "PENDING",
+    "uuid": "bd1041ce-b252-4269-88a0-c8a8fdc2926c",
+    "items": [
+      {
+        "type": "KEBAB",
+        "size": "SMALL",
+        "contents": "CHICKEN",
+        "spiciness": "SPICY",
+        "sauce": "MAYO"
+      },
+      {
+        "type": "BURGER",
+        "size": "SMALL",
+        "contents": "FALAFEL",
+        "spiciness": "MEDIUM_SPICY",
+        "sauce": "PICKLE"
+      },
+      {
+        "type": "PITA",
+        "size": "LARGE",
+        "contents": "MIX",
+        "spiciness": "SPICY",
+        "sauce": "GARLIC"
+      }
+    ]
+  }
+]

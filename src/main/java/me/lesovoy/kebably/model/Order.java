@@ -31,6 +31,4 @@ public class Order {
     @JsonProperty("items")
     private List<Item> items;
 
-    public Order() {
-    }
 }

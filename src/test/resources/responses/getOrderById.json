@@ -1,0 +1,21 @@
+{
+  "orderId": 1,
+  "status": "PENDING",
+  "uuid": "bd1041ce-b252-4269-88a0-c8a8fdc2926c",
+  "items": [
+    {
+      "type": "PITA",
+      "size": "LARGE",
+      "contents": "BEEF",
+      "spiciness": "MEDIUM_SPICY",
+      "sauce": "KETCHUP"
+    },
+    {
+      "type": "DONNER_PLATE",
+      "size": "MEDIUM",
+      "contents": "MIX",
+      "spiciness": "NOT_SPICY",
+      "sauce": "GARLIC"
+    }
+  ]
+}

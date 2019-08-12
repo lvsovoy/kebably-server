@@ -14,9 +14,6 @@ public class OrderBuilder {
     UUID uuid;
     List<Item> itemList = new ArrayList<>();
 
-    public OrderBuilder() {
-    }
-
     public OrderBuilder withStatus(Status status) {
         this.status = status;
         return this;

@@ -54,4 +54,8 @@ public class OrderController {
                 .filter(order -> order.getStatus().equals(status))
                 .collect(Collectors.toList());
     }
+
+    Order getOrderById(Long Id) {
+        return repository.getOne(Id);
+    }
 }
